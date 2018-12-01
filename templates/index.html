@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>HotelBooking</title>
 </head>
-<body>
+<body bgcolor="#7fffd4">
     <table align="center">
         <tr>
             <td>
@@ -29,19 +29,11 @@
     </table>
     <table align="center" border="2">
         <tr>
-            <th width="120">
-                <a href="/openHomePage/?type=home">
-                    Home
-                </a>
-            </th>
-            <th width="120">Services</th>
-            <th width="120">
-                <a href="/openUserLogin/?type=h_user">
-                    User
-                </a>
-            </th>
-            <th width="120">Admin</th>
-            <th width="120">Contact Us</th>
+            <th width="120"><a href="/openHomePage/?type=home">Home</a></th>
+            <th width="120"><a href="/openServicesPage/?type=h_services">Services</a></th>
+            <th width="120"><a href="/openUserLogin/?type=h_user">User</a></th>
+            <th width="120"><a href="/admin/" target="_blank"> Admin</a></th>
+            <th width="120"><a href="/openContactUsPage/?type=h_contact">Contact Us</a></th>
         </tr>
     </table>
     {% if type == "home" %}
@@ -75,5 +67,14 @@
             </table>
         </form>
     {% endif %}
+    {% if type == "h_services" %}
+        <form action="//" method="post">
+        {% csrf_token %}
+        <tr>
+            <td></td>
+        </tr>
+        </form>
+        {% endif %}
+
 </body>
 </html>
