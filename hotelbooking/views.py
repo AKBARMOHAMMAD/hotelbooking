@@ -17,3 +17,6 @@ def openServicesPage(request):
 def openContactUsPage(request):
     type=request.GET.get("type")
     return render(request,"index.html",{"type":type})
+def openCancelPage(request):
+    type=request.GET.get("type")
+    return render(request,"index.html",{"type":type})

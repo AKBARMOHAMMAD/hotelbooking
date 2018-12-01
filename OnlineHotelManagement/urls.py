@@ -19,11 +19,12 @@ from hotelbooking import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.openHomePage),
+    path('', views.openHomePage),
     path('openHomePage/', views.openHomePage),
     path('openUserLogin/', views.openUserLogin),
-    path('openUserRegister/',views.openUserRegister),
-    path('openServicesPage/',views.openServicesPage),
-    path('openContactUsPage/',views.openContactUsPage),
+    path('openUserRegister/', views.openUserRegister),
+    path('openServicesPage/', views.openServicesPage),
+    path('openContactUsPage/', views.openContactUsPage),
+    path('openCancelPage/',views.openCancelPage),
 
 ]

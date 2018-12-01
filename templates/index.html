@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>HotelBooking</title>
 </head>
-<body bgcolor="#7fffd4">
+<body bgcolor="#fffacd">
     <table align="center">
         <tr>
             <td>
@@ -34,10 +34,12 @@
             <th width="120"><a href="/openUserLogin/?type=h_user">User</a></th>
             <th width="120"><a href="/admin/" target="_blank"> Admin</a></th>
             <th width="120"><a href="/openContactUsPage/?type=h_contact">Contact Us</a></th>
+            <th width="120"><a href="/openCancelPage/?type=u_cancel">CANCEL</a> </th>
         </tr>
     </table>
     {% if type == "home" %}
     <table align="center">
+        <tr><td width="200"><h2>CHECK HERE FOR ROOMS AVAILABLE OR NOT:</h2></td></tr>
         <tr></tr>
         <tr></tr>
         <tr></tr>
@@ -54,15 +56,17 @@
     </table>
     {% endif %}
     {% if type == "h_user" %}
-        <form action="//" method="post">
+        <form  action="//" method="post">
             {% csrf_token %}
             <table align="center">
-                <tr><th height="50" width="200">User Login Page</th></tr>
-                <tr><th height="50" width="200"><input type="text" placeholder="UserName" required name="uname"></th></tr>
-                <tr><th height="50" width="200"><input type="text" placeholder="PassWord" required name="pass"></th> </tr>
-                <tr><th height="50" width="200"><input type="submit" value="Login"></th> </tr>
-                <tr><th>
-                    <a href="/openUserRegister/?type=u_register">New User Register</a>
+                <tr><th align="center" colspan="2">User Login</th></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr><th>UserName</th><td><input type="text" placeholder="UserName" required name="uname"></td></tr>
+                <tr><th>Password:</th><td><input type="text" placeholder="PassWord" required name="pass"></td> </tr>
+                <tr><th align="center"><td><input type="submit" value="Login"></td></tr></th>
+                <tr><th colspan="2"><a href="//">Forgot password?</a></th></tr>
+                    <tr><th colspan="2"><a href="/openUserRegister/?type=u_register">New User Register</a>
                 </th></tr>
             </table>
         </form>
@@ -84,8 +88,82 @@
                 </tr>
                 </table>
         </form>
-        <h3 align="center"><font size="2" face="" We Offer Several kinds of rooms </h3>
+        <h2 align="center"><font size="2" face="Arial"> We Offer Several kinds of rooms </font></h2>
+        <table align="center" border="1" bgcolor="#f0ffff">
+        <tr>
+            <td width="50">
+                <img src="{% static 'services/elegant-interior-design-hotel-room-house_148900.jpg' %}" width="150" height="150">
+            </td></tr></table>
+        <table align="center">
+            <tr><th><h3>AC Rooms</h3>
+                <p>Very Comfortable air<br>
+                    conditioned rooms with all basic<br>
+                    emenitieas in royal way</p><hr>
+            </tr></th>
+                </table>
+
+        <table align="center" border="1" bgcolor="white">
+            <tr>
+                <td width="50">
+                 <img src="{% static 'services/IMP_Standard_Double_07.jpg' %}" width="150" height="150">
+                    </td></tr></table>
+
+        <table align="center">
+            <tr><th><h3>Non-AC Rooms</h3>
+                <p>Very Comfortable and affordable<br>
+                    luxury rooms with basic<br>
+                    emenitieas in a grand manner</p><hr>
+            </tr></th>
+                </table>
         {% endif %}
+    {% if type == "u_register" %}
+        <form action="/openUserLogin/?type=h_user" method="post">  <!--verify it-->
+            {% csrf_token %}
+                <table align="center" border="0">
+                    <tr>
+                        <th width="250">
+                            <h3>User Register</h3>
+                        </th>
+                    </tr>
+                    <tr><th width="250"><input type="text" placeholder="Enter FirstName" required name="u_name"></th></tr>
+                    <tr><th width="250"><input type="text" placeholder="Enter LastName" required name="u_name"></th></tr>
+                    <tr><th width="250"><input type="email" placeholder="Enter Email-Id" required name="u_email"></th> </tr>
+                    <tr><th width="250"><input type="password" placeholder="Enter Password" required name="u_pass"></th> </tr>
+                     <tr><th width="250"><input type="password" placeholder="Enter Re-Enter Password" required name="u_rpass"></th> </tr>
+                     <tr><th width="250"><input type="number" placeholder="Contact No" required name="u_cno"></th> </tr>
+                    <tr><th width="250"><input type="text" placeholder="Full Address" required name="u_mess"></th> </tr>
+                    <tr><th width="250" ><input type="Submit" value="Submit">
+                        <input type="reset" value="Reset"></th> </tr><!--register successfully-->
+
+                </table>
+        </form>
+    {% endif %}
+    {% if type == "u_cancel" %}
+        <form action="/openHomePage/" method="post">
+        {% csrf_token %}
+        <table align="center">
+            <tr></tr>
+            <tr></tr>
+            <tr><th>User Name:</th><td><input type="text" placeholder="UserName"required name="uname"></td></tr></th>
+            <tr><th>RoomNumber:</th><td><input type="number" placeholder="RoomNumber" required name="uroom"></td></tr></th>
+            <tr><th>Cust_Id:</th><td><input type="number" required name="uid"></td></th> </tr>
+            <tr><th><td><input type="submit" value="Cancel"></td> </th> </tr><!--your booking room will be canceled-->
+
+        </table>
+         </form>
+    {% endif %}
+    {% if type == "h_contact" %}
+        <form action="/openHomePage/" method="post">
+            {% csrf_token %}
+        <table align="center">
+            <tr><th>Name:</th><td><input type="text" placeholder="Name" required name="name"></td></tr>
+            <tr><th>Email_Id:</th><td><input type="email" placeholder="Email" required name="email"></td></tr>
+            <tr><th>Message:</th><td><input type="text-area" placeholder="Write Something.." style="height:100px"></td></tr>
+            <tr align="center"><td colspan="2"><input type="submit" value="Submit"></td></tr>
+        </table>
+
+        </form>
+    {% endif %}
 
 </body>
 </html>
