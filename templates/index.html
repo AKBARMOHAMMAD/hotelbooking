@@ -70,10 +70,21 @@
     {% if type == "h_services" %}
         <form action="//" method="post">
         {% csrf_token %}
-        <tr>
-            <td></td>
-        </tr>
+            <table align="center" border="0">
+                <tr></tr>
+                <tr></tr>
+
+                <tr><td><img src="{% static 'services/449ce32523f66b58a1abed42c90d74ec.png' %}" width="150" height="150"> </td>
+                    <td><img src="{% static 'services/elegant-interior-design-hotel-room-house_148900.jpg' %}" width="150" height="150"></td>
+                    <td><img src="{% static 'services/7131.jpg' %}" width="150" height="150"></td>
+                    <td><img src="{% static 'services/hotel-bed-linen.png' %}" width="150" height="150"></td>
+                    <td><img src="{% static 'services/the-surrey-new-york-1.png' %}" width="150" height="150"></td>
+                    <td><img src="{% static 'services/two-beds.png' %}" width="150" height="150"></td>
+                    <td><img src="{% static 'services/IMP_Standard_Double_07.jpg' %}" width="150" height="150"></td>
+                </tr>
+                </table>
         </form>
+        <h3 align="center"><font size="2" face="" We Offer Several kinds of rooms </h3>
         {% endif %}
 
 </body>
